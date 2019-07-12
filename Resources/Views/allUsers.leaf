@@ -1,0 +1,7 @@
+#set("content") {
+  <h1>Users</h1>
+
+  #embed("usersTable")
+}
+
+#embed("base")

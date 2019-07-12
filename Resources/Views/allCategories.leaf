@@ -1,0 +1,7 @@
+#set("content") {
+  <h1>Categories</h1>
+
+  #embed("categoryTable")
+}
+
+#embed("base")

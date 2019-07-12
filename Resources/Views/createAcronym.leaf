@@ -1,0 +1,30 @@
+#set("content") {
+  <h1>#if(editing){Edit Acronym} else{Create an Acronym}</h1>
+
+  <form method="post">
+    <div class="form-group">
+      <label for="shortVersion">Acronym</label>
+      <input type="text" id="shortVersion" name="shortVersion" placeholder="Enter Acronym"
+      class="form-control" #if(editing) {value="#(acronym.shortVersion)"}>
+    </div>
+
+    <div class="form-group">
+      <label for="longVersion">Meaning</label>
+      <input type="text" id="longVersion" name="longVersion" placeholder="Enter Meaning"
+      class="form-control" #if(editing){value="#(acronym.longVersion)"}>
+    </div>
+
+    <div class="form-group">
+      <label for="userID">User</label>
+      <select id="userID" name="userID" class="form-control">
+        #for(user in users) {
+          <option value="#(user.id)" #if(user.id == acronym.userID){selected}>#(user.name)</option>
+        }
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">#if(editing){Update} else{Submit}</button>
+  </form>
+}
+
+#embed("base")
